@@ -1,0 +1,13 @@
+version: '2'
+services:
+  grafana-app:
+    build:
+      context: ./
+    image: quyenlc/grafana-app
+    ports:
+      - "${EXPOSED_SSH}:22"
+      - "3000:3000"
+
+volumes:
+  user_home:
+    driver: local

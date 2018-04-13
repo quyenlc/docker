@@ -1,0 +1,18 @@
+version: '2'
+services:
+  centos:
+    build:
+      context: ./
+      args:
+        - GROUPID=${MY_GROUPID}
+        - USERNAME=${MY_USERNAME}
+        - PASSWORD=${MY_PASSWORD}
+    image: quyenlc/centos6
+    volumes:
+      - user_home:/home/${MY_USERNAME}
+    ports:
+      - "${EXPOSED_SSH}:22"
+
+volumes:
+  user_home:
+    driver: local
